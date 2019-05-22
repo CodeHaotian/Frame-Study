@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.domain">
+    <class name="Student" table="t_student" lazy="false">
+        <id name="sid" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="name"/>
+        <!--set:多对多
+			set中table:写中间表的名字
+			key中column:写中间表的当前模型外键名称
+			many-to-many:class 写Course类名
+			many-to-many:column: 写中间表的另一个模型外键名称
+			 -->
+        <set name="courses" table="t_student_course" cascade="save-update" inverse="true" lazy="false">
+            <key column="sid"></key>
+            <many-to-many class="Course" column="cid"/>
+        </set>
+    </class>
+</hibernate-mapping>

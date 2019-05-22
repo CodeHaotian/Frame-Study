@@ -27,7 +27,7 @@
 						all : save-update 和 delete 整合
 						all-delete-orphan = 【save-update,delete,delete-orphan】: 三个整合
         -->
-        <set name="orders" inverse="true" cascade="save-update">
+        <set name="orders" inverse="true" cascade="all">
             <key column="customer_id"></key>
             <one-to-many class="Order"></one-to-many>
         </set>
