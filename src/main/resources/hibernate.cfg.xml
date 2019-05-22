@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- 1、配置数据库连接的4个参数 -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql:///demo</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">AngelBeats</property>
+
+        <!-- 是否显示sql语句 -->
+        <property name="show_sql">true</property>
+
+        <!-- 是否格式化sql语句 -->
+        <property name="format_sql">true</property>
+
+        <!-- 是否自动提交事务：针对insert有效，针对delete无效 -->
+        <property name="hibernate.connection.autocommit">true</property>
+
+        <!-- 开启与当前线程绑定session的功能
+            ThreadLocal<Connection>
+            ThreadLocal<ActionContext>
+            ThreadLocal<Session>
+         -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- hibernate.hbm2ddl.auto
+            配置映射文件与数据库表的关系
+            update:如果数据库有没表，自动帮你创表【常用】
+                      如果hbm与数据表不一样，会更新
+            create:每次启动hibernate都帮你创建表
+            create-drop,每次启动hibernate都帮你创建表,执行完后删除表
+            validate:检验hbm文件，如果与数据库的字符不一至，就抛出异常【过掉】
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- hiberante.dialect:数据库方言
+             mysql:分页limit
+             oracle:分页rownum
+         -->
+        <property name="hiberante.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!-- 2、配置JavaBean与表的映射文件 -->
+        <mapping resource="com/hibernate/domain/User.hbm.xml"/>
+        <mapping resource="com/hibernate/domain/Customer.hbm.xml"/>
+        <mapping resource="com/hibernate/domain/Order.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

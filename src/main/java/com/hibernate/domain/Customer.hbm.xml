@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.domain">
+    <class name="Customer" table="t_customer">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+
+        <!--模型和表的字段名一样，column可以不用写-->
+        <property name="name"/>
+
+        <!--描述一对多关系
+            key中column写的是外键名称
+            one-to-many:一对多，里面写class,写多的一方
+
+            inverse:是hibernate双向关系中的基本概念。
+                    inverse的真正作用就是指定由哪一方来维护之间的关联关系。
+                    当一方中指定了“inverse=false”（默认），
+                    那么那一方就有责任负责关联关系。
+             cascade:级联
+					save-update:级联保存,级联修改. 保存A(客户)时,同时保存B(定单)
+					delete:级联删除,删除A时,同时删除B.
+					delete-orphan: 孤儿删除，解除关系，同时将B删除，A存在的。
+					级联的组合
+						如果需要配置多项，使用逗号分隔。<set cascade="save-update,delete">
+						all : save-update 和 delete 整合
+						all-delete-orphan = 【save-update,delete,delete-orphan】: 三个整合
+        -->
+        <set name="orders" inverse="true" cascade="save-update">
+            <key column="customer_id"></key>
+            <one-to-many class="Order"></one-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
