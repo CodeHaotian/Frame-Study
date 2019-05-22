@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <!--配置常量-->
+    <!--1.配置访问的后缀名-->
+    <!--<constant name="struts.action.extension" value="action"></constant>-->
+
+    <!--配置开发模式-->
+    <constant name="struts.devMode" value="true"></constant>
+    <!-- 配置允许OGNL表达式调用静态方法、属性 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+    <!--
+    package:表示包
+            name:包名，在struts.xml文件不能有相同的包名，包名是唯一的
+            extends:继承，固定struts-default
+            abstract:抽象包，被用于继承，一般在抽象包里不声明action
+            namespace:命名空间
+
+    action:动作
+             name:相当于Servlet的映射路径(@WebServlet)
+             class:处理请求的类，相当于一个人Servlet类
+             method:处理请求的方法
+    result:结果，写返回的jsp页面
+    -->
+    <package name="p1" extends="struts-default">
+        <action name="hello" class="com.struts.web.action.HelloAction" method="sayHello">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+
+    <package name="p2" extends="struts-default" namespace="/demo">
+        <!--action没有配置method,默认访问会访问Action的execute()方法-->
+        <action name="demo" class="com.struts.web.action.DemoAction">
+            <!--1.result的name可以不写，默认就是success
+                2.type属性：
+                    dispatcher:装发到一个页面，默认值
+                    redirect:重定向到一个页面
+                    chain:转发到其他Action
+                    redirectAction:重定向到另一个Action
+                    -->
+            <result name="success" type="redirect">/success.jsp</result>
+        </action>
+    </package>
+
+    <!--转发同包直接配置Action
+    转发不同包/after中的checkCode需要加入param-->
+    <package name="p3" extends="struts-default" namespace="/before">
+        <action name="forward" class="com.struts.web.action.ChainAction">
+            <result type="chain">
+                <param name="namespace">/after</param>
+                <param name="actionName">checkCode</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="p4" extends="struts-default" namespace="/after">
+        <!--局部的结果视图配置：声明一个验证结果类型-->
+        <result-types>
+            <result-type name="captcha" class="com.struts.web.result.CaptchaResult"></result-type>
+        </result-types>
+        <!--配置Action-->
+        <action name="checkCode">
+            <result type="captcha"></result>
+        </action>
+    </package>
+
+    <package name="p5" extends="struts-default" namespace="/user">
+        <!--input:回显,出现错误后，显示哪个页面-->
+        <action name="register" class="com.struts.web.action.UserAction" method="register">
+            <result name="input">/register.jsp</result>
+        </action>
+    </package>
+
+    <package name="p6" extends="struts-default" namespace="/stu">
+        <action name="add" class="com.struts.web.action.StudentAction" method="add">
+            <result name="input">/add.jsp</result>
+        </action>
+    </package>
+
+    <package name="p7" extends="struts-default">
+        <!--声明拦截器-->
+        <interceptors>
+            <!--登录校验的拦截-->
+            <interceptor name="MyInterceptor" class="com.struts.interceptor.MyInterceptor"></interceptor>
+            <!--拦截器分组-->
+            <interceptor-stack name="myDefaultStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="MyInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+        <!--全局的结果视图-->
+        <global-results>
+            <result name="toLoginPage">/login.jsp</result>
+        </global-results>
+
+        <action name="login" class="com.struts.web.action.LoginAction" method="login">
+            <!-- 进行token拦截 -->
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="tokenSession"/>
+            <result>/WEB-INF/main.jsp</result>
+            <result name="invalid.token">/invalidtoken.jsp</result>
+        </action>
+
+        <!--跳转学生页面-->
+        <action name="studentList" class="com.struts.web.action.StuAction" method="list">
+            <interceptor-ref name="myDefaultStack"/>
+            <result>/WEB-INF/stuList.jsp</result>
+        </action>
+
+        <!-- 跳转教师页面-->
+        <action name="teacherList" class="com.struts.web.action.TeaAction" method="list">
+            <interceptor-ref name="myDefaultStack"/>
+            <result>/WEB-INF/teaList.jsp</result>
+        </action>
+    </package>
+
+    <package name="p8" extends="struts-default">
+        <action name="upload" class="com.struts.web.action.UploadAction" method="upload">
+            <result name="input">/upload.jsp</result>
+        </action>
+        <action name="download" class="com.struts.web.action.DownloadAction" method="download">
+            <!--以流的方式返回给客户端-->
+            <result name="success" type="stream"></result>
+            <param name="inputName">inputStream</param>
+            <!-- ${}它不EL表达式，它是OGNL表达式 -->
+            <param name="contentDisposition">attachment;filename=${@java.net.URLEncoder@encode(fileName,"UTF-8")}
+            </param>
+            <param name="contentType">application/octet-stream</param>
+        </action>
+    </package>
+
+    <package name="p9" extends="struts-default">
+        <action name="test1" class="com.struts.web.action.ActionTest01">
+            <result>/test1.jsp</result>
+        </action>
+        <action name="list" class="com.struts.web.action.ActionTest02" method="list">
+            <result>/demo01.jsp</result>
+        </action>
+    </package>
+</struts>
