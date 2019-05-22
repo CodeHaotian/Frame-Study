@@ -7,6 +7,18 @@
     <groupId>com.yileaf</groupId>
     <artifactId>frame_study</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <description>各种Java框架的练习记录</description>
+
+    <developers>
+        <developer>
+            <id>Mitu</id>
+            <name>Tang Haotian</name>
+            <email>2056423011@qq.com</email>
+            <url>https://www.yileaf.com</url>
+        </developer>
+    </developers>
+
     <modules>
         <module>hibernate_study</module>
         <module>struts2_study</module>
