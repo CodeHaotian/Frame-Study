@@ -27,15 +27,15 @@ public class HibernateTest08 {
 
         //1.创建2个学生
         Student stu1 = new Student();
-        stu1.setName( "椎名真白" );
+        stu1.setName( "蕾姆" );
         Student stu2 = new Student();
-        stu2.setName( "莎缇莱萨·L·布丽姬" );
+        stu2.setName( "伊卡洛斯" );
 
         //2.创建2个课程
         Course c1 = new Course();
-        c1.setName( "文学" );
+        c1.setName( "家政课" );
         Course c2 = new Course();
-        c2.setName( "战姬" );
+        c2.setName( "战斗学" );
 
         //3.绑定课程到学生
         stu1.getCourses().add( c1 );

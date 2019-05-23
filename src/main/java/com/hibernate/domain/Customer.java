@@ -1,19 +1,15 @@
 package com.hibernate.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
  * @Author：Haotian
  * @Date：2019/5/22 16:38
  */
-@Getter
-@Setter
+@Data
 public class Customer {
     /**
      * description:

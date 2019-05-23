@@ -1,9 +1,6 @@
 package com.hibernate.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,10 +9,7 @@ import java.util.Set;
  * @Author：Haotian
  * @Date：2019/5/22 21:18
  */
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Student {
     /**
      * description:学生实体类
