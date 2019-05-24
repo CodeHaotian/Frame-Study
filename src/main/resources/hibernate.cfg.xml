@@ -78,6 +78,8 @@
         <mapping resource="com/hibernate/domain/Course.hbm.xml"/>
         <mapping resource="com/hibernate/domain/Address.hbm.xml"/>
         <mapping resource="com/hibernate/domain/Company.hbm.xml"/>
+        <mapping resource="com/hibernate/tieba/model/Reply.hbm.xml"/>
+        <mapping resource="com/hibernate/tieba/model/Topic.hbm.xml"/>
 
         <!-- 指定哪些类要加入二级缓存 -->
         <class-cache usage="read-write" class="com.hibernate.domain.Customer"/>

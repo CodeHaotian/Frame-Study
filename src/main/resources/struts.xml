@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+    <!--配置开发模式-->
+    <constant name="struts.devMode" value="true"></constant>
+
+    <package name="tieBa" namespace="/" extends="struts-default">
+        <action name="topic_*" class="com.hibernate.tieba.web.action.TopicAction" method="{1}">
+            <result name="list">/listTopics.jsp</result>
+        </action>
+        <action name="topic_search" class="com.hibernate.tieba.web.action.TopicAction" method="search">
+            <result name="list">/listTopics.jsp</result>
+        </action>
+    </package>
+
+</struts>
