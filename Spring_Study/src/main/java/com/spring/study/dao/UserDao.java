@@ -1,15 +1,15 @@
-package com.spring.study.service;
+package com.spring.study.dao;
 
 import com.spring.study.model.User;
 
 /**
  * @Author：Haotian
- * @Date：2019/5/24 21:40
+ * @Date：2019/5/25 16:25
  */
-public interface UserService {
+public interface UserDao {
     /**
      * 添加用户
-     * @param user
+     * @param user 用户
      */
     void add(User user);
 }

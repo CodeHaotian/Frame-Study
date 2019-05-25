@@ -32,6 +32,6 @@ public class SpringTest01 {
 
         //2.从spring容器获取 userSerivce对象
         UserService service1 = (UserService) context.getBean( "userService" );
-        service1.add();
+        //service1.add();
     }
 }
