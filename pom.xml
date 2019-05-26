@@ -35,7 +35,9 @@
         <lombok-version>1.18.8</lombok-version>
         <struts-version>2.5.20</struts-version>
         <spring-version>5.1.5.RELEASE</spring-version>
+        <c3p0-version>0.9.5.3</c3p0-version>
         <druid-version>1.1.11_preview_9</druid-version>
+        <hibernate-version>5.3.7.Final</hibernate-version>
         <spring-jdbc-version>5.1.5.RELEASE</spring-jdbc-version>
         <mysql-connector-java-version>5.1.47</mysql-connector-java-version>
     </properties>
@@ -95,6 +97,13 @@
             <version>${mysql-connector-java-version}</version>
         </dependency>
 
+        <!-- c3p0支持-->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.3</version>
+        </dependency>
+
         <!-- druid连接池-->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -107,6 +116,47 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
+        </dependency>
+       <!--orm支持-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+
+
+        <!--hibernate依赖-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-version}</version>
+        </dependency>
+        <!--hibernate连接c3p0依赖-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.4.1.Final</version>
+        </dependency>
+        <!-- hibernate-ehcache支持 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>5.3.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0</version>
         </dependency>
 
     </dependencies>

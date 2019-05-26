@@ -9,12 +9,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Author：Haotian
  * @Date：2019/5/24 21:43
  */
-public class SpringTest05 {
+public class SpringTest06 {
 
     @Test
     public void test1() {
         //获取Spring容器中代理对象
-        ApplicationContext context = new ClassPathXmlApplicationContext( "beans6.xml" );
+        ApplicationContext context = new ClassPathXmlApplicationContext( "beans7.xml" );
 
         UserService userService = (UserService) context.getBean( "userService" );
         User user = new User();
@@ -26,5 +26,16 @@ public class SpringTest05 {
         ss.add();
     }
 
+    @Test
+    public void test2() throws Exception {
 
+        /**
+         * 使用注解来配置AOP
+         */
+        ApplicationContext context = new ClassPathXmlApplicationContext( "beans8.xml" );
+
+        UserService userService = (UserService) context.getBean( "userService" );
+
+        userService.delete();
+    }
 }

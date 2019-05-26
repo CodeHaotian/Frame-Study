@@ -13,11 +13,11 @@
 
 
     <!--  配置UserService-->
-    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl"/>
+    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl2"/>
     <bean id="studentService" class="com.spring.study.service.impl.StudentService"/>
 
     <!--  配置切面类对象-->
-    <bean id="myAspect" class="com.spring.study.aspect.MyAspect"/>
+    <bean id="myAspect" class="com.spring.study.aspect.MyAspect3"/>
 
     <!-- 全自动AOP配置
      1.在bean中配置aop约束

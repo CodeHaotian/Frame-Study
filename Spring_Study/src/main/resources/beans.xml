@@ -8,7 +8,7 @@
        2.通过反射，用类名创建对象
        2.给创建的对象赋值
     -->
-    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl">
+    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl2">
         <!-- 依赖注入数据，调用属性的set方法 -->
         <property name="name" value="测试"/>
     </bean>

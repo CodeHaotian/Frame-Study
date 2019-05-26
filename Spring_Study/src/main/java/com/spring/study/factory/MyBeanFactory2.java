@@ -2,13 +2,8 @@ package com.spring.study.factory;
 
 import com.spring.study.aspect.MyAspect2;
 import com.spring.study.service.UserService;
-import com.spring.study.service.impl.StudentService;
-import com.spring.study.service.impl.UserServiceImpl;
-import org.springframework.cglib.proxy.Enhancer;
-import org.springframework.cglib.proxy.MethodInterceptor;
-import org.springframework.cglib.proxy.MethodProxy;
+import com.spring.study.service.impl.UserServiceImpl2;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -24,7 +19,7 @@ public class MyBeanFactory2 {
      */
     public static UserService createUserService() {
         //1.创建目标对象target
-        UserService userService = new UserServiceImpl();
+        UserService userService = new UserServiceImpl2();
 
         //2.声明切面类对象
         MyAspect2 aspect = new MyAspect2();

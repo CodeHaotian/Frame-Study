@@ -3,8 +3,7 @@ package com.spring.study.factory;
 import com.spring.study.aspect.MyAspect2;
 import com.spring.study.service.UserService;
 import com.spring.study.service.impl.StudentService;
-import com.spring.study.service.impl.UserServiceImpl;
-import org.springframework.cglib.proxy.Callback;
+import com.spring.study.service.impl.UserServiceImpl2;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -25,7 +24,7 @@ public class MyBeanFactory {
      */
     public static UserService createUserService() {
         //1.创建目标对象target
-        UserService userService = new UserServiceImpl();
+        UserService userService = new UserServiceImpl2();
 
         //2.声明切面类对象
         MyAspect2 aspect = new MyAspect2();
@@ -76,25 +75,22 @@ public class MyBeanFactory {
         //设置父类
         enhancer.setSuperclass( studentService.getClass() );
         //设置回调【拦截】
-        enhancer.setCallback( new MethodInterceptor() {
-            @Override
-            public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-                /**
-                 * proxy:
-                 * om.gyf.service.StudentService$$EnhancerByCGLIB$$fbb8ef26
-                 * proxy代理对象是StudentService的子类
-                 */
-                aspect.before();
-                /*放行方法
-                Object retObj = method.invoke(studentService,args);*/
+        enhancer.setCallback( (MethodInterceptor) (proxy, method, args, methodProxy) -> {
+            /**
+             * proxy:
+             * om.gyf.service.StudentService$$EnhancerByCGLIB$$fbb8ef26
+             * proxy代理对象是StudentService的子类
+             */
+            aspect.before();
+            /*放行方法
+            Object retObj = method.invoke(studentService,args);*/
 
-                //解藕
-                Object retObj = methodProxy.invokeSuper( proxy, args );
-                System.out.println( "拦截....." );
+            //解藕
+            Object retObj = methodProxy.invokeSuper( proxy, args );
+            System.out.println( "拦截....." );
 
-                aspect.after();
-                return retObj;
-            }
+            aspect.after();
+            return retObj;
         } );
         //创建代理对象
         StudentService serviceProxy = (StudentService) enhancer.create();

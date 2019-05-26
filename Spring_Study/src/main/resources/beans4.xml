@@ -8,7 +8,7 @@
     <bean id="userDao" class="com.spring.study.dao.impl.UserDaoImpl"/>
 
     <!-- 2.配置service -->
-    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl">
+    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl2">
         <property name="userDao" ref="userDao"/>
     </bean>
 

@@ -9,7 +9,13 @@ import com.spring.study.model.User;
 public interface UserService {
     /**
      * 添加用户
+     *
      * @param user
      */
     void add(User user);
+
+    /**
+     * 删除用户
+     */
+    void delete();
 }
