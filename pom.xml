@@ -23,6 +23,7 @@
         <module>hibernate_study</module>
         <module>struts2_study</module>
         <module>Spring_Study</module>
+        <module>Mybatis_Study</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -111,13 +112,7 @@
             <version>${druid-version}</version>
         </dependency>
 
-        <!-- log4j日志文件 -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-       <!--orm支持-->
+        <!--orm支持-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
