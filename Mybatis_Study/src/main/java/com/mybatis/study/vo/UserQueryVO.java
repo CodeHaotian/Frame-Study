@@ -1,17 +1,16 @@
 package com.mybatis.study.vo;
 
 import com.mybatis.study.model.User;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+
+import java.util.List;
 
 /**
  * @Author：Haotian
  * @Date：2019/5/27 21:33
  */
-@Getter
-@Setter
-@ToString
+@Data
 public class UserQueryVO {
     private User user;
+    private List<Integer> ids;
 }

@@ -6,6 +6,13 @@
 
     <properties resource="db.properties"/>
 
+    <settings>
+        <!--配置允许懒加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--允许开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
     <!--配置别名-->
     <typeAliases>
         <!--<typeAlias type="com.gyf.model.User" alias="user"></typeAlias>-->
