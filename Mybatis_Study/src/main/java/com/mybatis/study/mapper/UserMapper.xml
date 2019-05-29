@@ -4,6 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mybatis.study.mapper.UserMapper">
 
+    <!-- 配置缓存
+        1.type不写，默认使用的是mybaits自带的缓存技术,perpetualCache
+        2.可以改成ehcache缓存-->
+    <cache/>
+
+    <!-- 默认情况下，插入，更新，删除，会清空二级缓存
+       默认情况下flushCache="true"
+       如果设置为false,插入，更新，删除就不会清空二级缓存
+  -->
     <insert id="save" parameterType="user">
       INSERT INTO user (username,sex,birthday,address)
         VALUE (#{username},#{sex},#{birthday},#{address})
@@ -23,6 +32,8 @@
         SELECT u.* FROM user u WHERE username LIKE '%${username}%' AND sex = #{sex}
     </select>
 
+    <!-- 设置返回数据为基本类型,int,double,long,string....-->
+    <!-- 查询用户的个数 -->
     <select id="findUserCount" parameterType="userQueryVO" resultType="int">
         SELECT COUNT(*) FROM  user WHERE sex = #{user.sex}
     </select>
