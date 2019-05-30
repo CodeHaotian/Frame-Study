@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: gyf
-  Date: 2018/5/23
-  Time: 16:01
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,9 +10,9 @@
     性别:<input type="text" name="user.gender"><br>
     年龄:<input type="text" name="user.age"><br>
     生日:<input type="text" name="user.birthday"><br>
-    爱好:<input type="checkbox" name="user.hobbyIds" value="1">打球
-    <input type="checkbox" name="user.hobbyIds" value="2">打人
-    <input type="checkbox" name="user.hobbyIds" value="3">打假<br>
+    爱好:<input type="checkbox" name="user.hobbyIds" value="1">旅游
+    <input type="checkbox" name="user.hobbyIds" value="2">游戏
+    <input type="checkbox" name="user.hobbyIds" value="3">吃喝<br>
     <input type="submit">
 </form>
 
