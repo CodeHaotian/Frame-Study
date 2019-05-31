@@ -14,6 +14,7 @@ import java.util.List;
  * @Date：2019/5/30 22:08
  */
 @Service
+@Transactional
 public class IItemsServiceImpl implements IItemsService {
     @Autowired
     private ItemsMapper itemsMapper;
