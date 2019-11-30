@@ -12,6 +12,10 @@ public class IUserServiceImpl implements IUserService {
 
     private IUserDao userDao;
 
+    public IUserServiceImpl(IUserDao userDao) {
+
+    }
+
     public void setUserDao(IUserDao userDao) {
         this.userDao = userDao;
     }

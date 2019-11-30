@@ -1,6 +1,7 @@
 package com.spring.study.service.impl;
 
 import com.spring.study.model.User;
+import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,8 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Override
-    public void add(User user) {
-        System.out.println( "添加用户" );
+    public void add(Users user) {
+        System.out.println( "添加用户" + user );
     }
 
     @Override

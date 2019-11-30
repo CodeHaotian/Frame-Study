@@ -1,15 +1,14 @@
-import com.spring.study.model.Customer;
-import com.spring.study.model.User;
-import com.spring.study.service.UserService;
+import com.spring.study.model.Users;
+import com.spring.study.web.action.IUserAction;
 import com.spring.study.web.action.UserAction;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @Author：Haotian
- * @Date：2019/5/24 21:43
- */
+ * @Author: Haotian
+ * @Date: 2019/11/29 15:15
+ **/
 public class SpringTest03 {
 
     @Test
@@ -17,13 +16,13 @@ public class SpringTest03 {
         //web开发流程 action -> service -> dao
         ApplicationContext context = new ClassPathXmlApplicationContext( "beans4.xml" );
         //拿到service
-        UserService userService = (UserService) context.getBean( "userService" );
+        IUserAction userAction = (IUserAction) context.getBean( "userAction" );
 
         //添加用户
-        User user = new User();
-        user.setUsername( "gyf" );
-        user.setPassword( "1234" );
-        userService.add( user );
+        Users u = new Users();
+        u.setUsername( "gyf" );
+        u.setPassword( "1234" );
+        userAction.register( u );
     }
 
     @Test
@@ -35,7 +34,7 @@ public class SpringTest03 {
         UserAction userAction = (UserAction) context.getBean( "userAction" );
 
         //添加用户
-        User user = new User();
+        Users user = new Users();
         user.setUsername( "测试" );
         user.setPassword( "1234" );
         userAction.save( user );

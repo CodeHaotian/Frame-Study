@@ -1,3 +1,4 @@
+import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -32,6 +33,7 @@ public class SpringTest01 {
 
         //2.从spring容器获取 userSerivce对象
         UserService service1 = (UserService) context.getBean( "userService" );
-        //service1.add();
+        Users u = Users.builder().password( "123456" ).build();
+        service1.add( u );
     }
 }

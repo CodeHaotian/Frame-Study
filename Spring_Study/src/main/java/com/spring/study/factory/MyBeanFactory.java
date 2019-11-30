@@ -6,21 +6,19 @@ import com.spring.study.service.impl.StudentService;
 import com.spring.study.service.impl.UserServiceImpl2;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
-import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @author Haotian
- */
+ * @Author: Haotian
+ * @Date: 2019/11/29 14:30
+ **/
 public class MyBeanFactory {
 
     /**
      * JDK实现代理
-     *
-     * @return
      */
     public static UserService createUserService() {
         //1.创建目标对象target

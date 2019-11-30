@@ -1,6 +1,6 @@
 package com.spring.study.service;
 
-import com.spring.study.model.User;
+import com.spring.study.model.Users;
 
 /**
  * @Author：Haotian
@@ -12,7 +12,7 @@ public interface UserService {
      *
      * @param user
      */
-    void add(User user);
+    void add(Users user);
 
     /**
      * 删除用户

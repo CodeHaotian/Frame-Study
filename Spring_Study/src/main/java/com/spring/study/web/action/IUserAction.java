@@ -24,7 +24,7 @@ public class IUserAction extends ActionSupport implements ModelDriven<Users> {
         this.iUserService = iUserService;
     }
 
-    public String register() {
+    public String register(Users users) {
         //获取请求参数
         System.out.println( users );
 

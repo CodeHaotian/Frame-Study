@@ -1,4 +1,5 @@
 import com.spring.study.model.User;
+import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import com.spring.study.service.impl.StudentService;
 import org.junit.Test;
@@ -17,7 +18,7 @@ public class SpringTest05 {
         ApplicationContext context = new ClassPathXmlApplicationContext( "beans6.xml" );
 
         UserService userService = (UserService) context.getBean( "userService" );
-        User user = new User();
+        Users user = new Users();
         user.setUsername( "测试" );
 
         userService.add( user );

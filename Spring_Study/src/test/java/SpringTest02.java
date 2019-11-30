@@ -1,6 +1,5 @@
 import com.spring.study.model.Customer;
 import com.spring.study.model.User;
-import com.spring.study.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

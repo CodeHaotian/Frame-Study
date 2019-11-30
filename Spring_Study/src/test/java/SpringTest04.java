@@ -1,5 +1,6 @@
 import com.spring.study.factory.MyBeanFactory;
 import com.spring.study.model.User;
+import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import com.spring.study.service.impl.StudentService;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class SpringTest04 {
         //自己实现AOP编程，使用JDK代理来实现
 
         UserService userService = MyBeanFactory.createUserService();
-        User user = new User();
+        Users user = new Users();
         user.setUsername( "aaa" );
         userService.add( user );
     }
