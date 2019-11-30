@@ -3,6 +3,7 @@ package com.spring.study.web.action;
 import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -17,10 +18,12 @@ public class UserAction {
      * @param Qualifier 根据指定的id注入属性
      */
     @Autowired
+    @Qualifier("userService")
     private UserService service;
 
     public void save(Users u) {
-        System.out.println( "action save方法 " );
+        System.out.println( "执行action save方法 " );
         service.add( u );
+        service.delete();
     }
 }

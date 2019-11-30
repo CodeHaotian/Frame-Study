@@ -1,6 +1,5 @@
 package com.spring.study.service.impl;
 
-import com.spring.study.model.User;
 import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import org.springframework.stereotype.Service;
