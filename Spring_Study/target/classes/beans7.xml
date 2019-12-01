@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--  配置UserService-->
+    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl2"/>
+
+    <!-- 配置切面对象-->
+    <bean id="myAspect" class="com.spring.study.aspect.MyAspect"/>
+
+    <!-- 配置 aop -->
+    <aop:config>
+        <!-- aop:指定切面-->
+        <aop:aspect ref="myAspect">
+            <!--定义一个切入点-->
+            <aop:pointcut id="myPointcut"
+                          expression="execution(* com.spring.study.service.impl.UserServiceImpl2.*(..))"/>
+
+            <!-- 配置前置通知...-->
+            <aop:before method="myBefore" pointcut-ref="myPointcut"/>
+
+            <!-- 配置后置通知...-->
+            <aop:after-returning method="myAfterReturning" pointcut-ref="myPointcut" returning="retValue"/>
+
+            <!--配置环绕通知-->
+            <aop:around method="myAround" pointcut-ref="myPointcut"/>
+
+            <!-- 配置异常通知
+            throwing="e" 值，是方法的参数名
+            -->
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointcut" throwing="e"/>
+
+            <!--配置最终通知:不管有没有异常，最终通知都会执行-->
+            <aop:after method="myAfter" pointcut-ref="myPointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

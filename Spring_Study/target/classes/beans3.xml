@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    SpEL:spring表达式
+         <property name="" value="#{表达式}">
+         #{123}、#{'jack'} ： 数字、字符串
+         #{T(类).字段|方法}	：静态方法或字段
+         #{beanId}	：另一个bean引用
+         #{beanId.propName}	：操作数据
+         #{beanId.toString()}	：执行方法
+    -->
+    <!--创建一个地址对象-->
+    <bean id="address" class="com.spring.study.model.Address">
+        <property name="name" value="天堂村"/>
+    </bean>
+
+    <bean id="customer" class="com.spring.study.model.Customer">
+        <property name="name" value="#{'gyf'.toUpperCase()}"/>
+        <!-- Math.PI 调用静态方法-->
+        <property name="pi" value="#{T(java.lang.Math).PI}"/>
+        <!-- list数据注入-->
+        <property name="cars">
+            <list>
+                <value>保时捷</value>
+                <value>雷克萨斯</value>
+            </list>
+        </property>
+        <!-- set数据注入-->
+        <property name="pats">
+            <set>
+                <value>哈士奇</value>
+                <value>萨摩耶</value>
+                <value>秋田犬</value>
+            </set>
+        </property>
+        <!-- map数据注入-->
+        <property name="infos">
+            <map>
+                <entry key="name" value="琳琳"/>
+                <entry key="age" value="20"/>
+                <entry key="ip" value="127.0.0.1"/>
+            </map>
+        </property>
+        <!--Properties 数据注入-->
+        <property name="mysqlInfos">
+            <props>
+                <prop key="url">mysql:jdbc://localhost:3306/demo</prop>
+                <prop key="user">root</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+        <!-- 数组注入-->
+        <property name="members">
+            <array>
+                <value>哥哥</value>
+                <value>弟弟</value>
+                <value>妹妹</value>
+                <value>姐姐</value>
+            </array>
+        </property>
+
+        <!--
+        一个对象引用另外一个对象两写法
+        1.ref: 引用<property name="address" ref="address"></property>
+        2.SpEL:<property name="address" value="#{address}"></property>
+        -->
+        <property name="address" value="#{address}"/>
+    </bean>
+</beans>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--配置一个人bean对象-->
+    <!-- spring内部创建对象的原理：
+       1.解析xml文件，获取类名，id,属性
+       2.通过反射，用类名创建对象
+       2.给创建的对象赋值
+    -->
+    <bean id="userService" class="com.spring.study.service.impl.UserServiceImpl2">
+        <!-- 依赖注入数据，调用属性的set方法 -->
+        <property name="name" value="测试"/>
+    </bean>
+</beans>
