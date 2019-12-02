@@ -18,4 +18,11 @@ public interface UserService {
      * 删除用户
      */
     void delete();
+
+    /**
+     * 动态代理测试方法
+     * @param name 存放数据
+     * @return 返回值
+     */
+    String test(String name);
 }

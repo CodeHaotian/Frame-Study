@@ -23,11 +23,17 @@ public class UserServiceImpl2 implements UserService {
     @Override
     public void add(Users user) {
         System.out.println( "Spring启动测试...." );
-        System.out.println( name );
+        System.out.println( user );
     }
+
 
     @Override
     public void delete() {
         System.out.println( "删除用户..." );
+    }
+
+    @Override
+    public String test(String name) {
+        return name;
     }
 }
