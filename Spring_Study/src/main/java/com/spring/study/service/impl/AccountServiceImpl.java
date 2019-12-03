@@ -35,7 +35,5 @@ public class AccountServiceImpl implements AccountService {
                 accountDao.in( inner, money );
             }
         } );
-
     }
-
 }
