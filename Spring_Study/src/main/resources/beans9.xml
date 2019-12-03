@@ -11,19 +11,6 @@
                            http://www.springframework.org/schema/aop
                            http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 配置DBCP dataSource 对象-->
-    <!--  BasicDataSource dataSource = new BasicDataSource();
-      dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-      dataSource.setUrl("jdbc:mysql:///spring_day04");
-      dataSource.setUsername("root");
-      dataSource.setPassword("123456");-->
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql:///spring_day04"/>
-        <property name="username" value="root"/>
-        <property name="password" value="123456"/>
-    </bean>-->
-
     <!-- 读取db.properties数据-->
     <context:property-placeholder location="classpath:db.properties"/>
     <!-- 配置c3p0数据源

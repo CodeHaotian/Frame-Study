@@ -13,7 +13,7 @@ public class SpringTest07 {
     public void test1() {
         ApplicationContext context = new ClassPathXmlApplicationContext( "beans9.xml" );
         AccountService accountService = (AccountService) context.getBean( "accountService" );
-        accountService.transfer( "艾莉丝", "杰米", 500 );
+        accountService.transfer( "艾莉丝", "杰米", 1000 );
     }
     //转账测试半自动
     @Test
