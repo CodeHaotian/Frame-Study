@@ -1,5 +1,6 @@
 package com.spring.study.web.controller;
 
+import com.spring.study.domain.Gril;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @RequestMapping("/save")
-    public String save() {
-        return "Hello Spring MVC";
+    public Gril save() {
+        return Gril.builder().name( "jack" ).age( 18 ).build();
     }
+
 }
