@@ -3,7 +3,6 @@ package com.spring.study.service.impl;
 import com.spring.study.dao.GrilDao;
 import com.spring.study.domain.Gril;
 import com.spring.study.service.GrilService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +14,11 @@ import java.util.List;
  */
 @Service
 public class GrilServiceImpl implements GrilService {
-    @Autowired
-    private GrilDao grilDao;
+    private final GrilDao grilDao;
+
+    public GrilServiceImpl(GrilDao grilDao) {
+        this.grilDao = grilDao;
+    }
 
     @Override
     public void add(Gril gril) {
@@ -35,11 +37,11 @@ public class GrilServiceImpl implements GrilService {
 
     @Override
     public void delete(Integer id) {
-        grilDao.delete(id);
+        grilDao.delete( id );
     }
 
     @Override
     public Gril findByTd(Integer id) {
-        return grilDao.findById(id);
+        return grilDao.findById( id );
     }
 }

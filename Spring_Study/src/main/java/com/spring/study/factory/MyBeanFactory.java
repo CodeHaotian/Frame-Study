@@ -1,8 +1,6 @@
 package com.spring.study.factory;
 
 import com.spring.study.aspect.MyAspect2;
-import com.spring.study.model.User;
-import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import com.spring.study.service.impl.StudentService;
 import com.spring.study.service.impl.UserServiceImpl2;

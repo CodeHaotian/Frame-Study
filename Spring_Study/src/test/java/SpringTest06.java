@@ -1,4 +1,3 @@
-import com.spring.study.model.User;
 import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import com.spring.study.service.impl.StudentService;
@@ -28,7 +27,6 @@ public class SpringTest06 {
 
     @Test
     public void test2() throws Exception {
-
         /**
          * 使用注解来配置AOP
          */

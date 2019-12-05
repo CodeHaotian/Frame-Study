@@ -1,4 +1,3 @@
-import com.spring.study.model.User;
 import com.spring.study.model.Users;
 import com.spring.study.service.UserService;
 import com.spring.study.service.impl.StudentService;
@@ -26,6 +25,5 @@ public class SpringTest05 {
         StudentService ss = (StudentService) context.getBean( "studentService" );
         ss.add();
     }
-
 
 }

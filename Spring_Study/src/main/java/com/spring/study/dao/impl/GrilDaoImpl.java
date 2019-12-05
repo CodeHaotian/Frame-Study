@@ -2,7 +2,6 @@ package com.spring.study.dao.impl;
 
 import com.spring.study.dao.GrilDao;
 import com.spring.study.domain.Gril;
-import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,8 +16,12 @@ import java.util.List;
  */
 @Repository
 public class GrilDaoImpl implements GrilDao {
+    private final JdbcTemplate jdbcTemplate;
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public GrilDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public void add(Gril gril) {
