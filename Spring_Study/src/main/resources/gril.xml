@@ -3,9 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!--开启注解扫描-->
     <context:component-scan base-package="com.spring.study"/>
     <!--加载配置文件-->
@@ -18,20 +20,17 @@
         <property name="password" value="${password}"/>
     </bean>
 
-    <!--配置切面-->
-    <bean id="MyAspect" class="com.spring.study.aspect.MyAspect2"/>
-
-    <!--使用aop配置-->
-    <aop:config>
-        <!--引用切面-->
-        <aop:aspect ref="MyAspect">
-            <!--配置Target的method方法执行时要进行myAspect的before方法前置增强-->
-            <aop:before method="before" pointcut="execution(* com.spring.study.service.impl.GrilServiceImpl.*(..))"/>
-        </aop:aspect>
-    </aop:config>
-
     <!--配置jdbc依赖数据源-->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSources"/>
     </bean>
+
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class=" org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSources"/>
+    </bean>
+
+    <!--事务的注解驱动-->
+    <tx:annotation-driven/>
 </beans>
