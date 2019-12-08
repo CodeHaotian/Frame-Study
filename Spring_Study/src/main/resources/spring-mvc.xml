@@ -7,19 +7,34 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!--开启注解扫描-->
-    <context:component-scan base-package="com.spring.study.web.controller"/>
+    <!--Controller的组件扫描-->
+    <context:component-scan base-package="com.spring.study">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
     <!--开启json支持-->
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+    <!-- <mvc:annotation-driven>
+         <mvc:message-converters>
+             <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+         </mvc:message-converters>
+     </mvc:annotation-driven>-->
+
+    <!--mvc注解驱动 默认底层就会集成jackson-->
+    <mvc:annotation-driven/>
 
     <!--配置内部资源视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/html"/>
         <property name="suffix" value=".html"/>
     </bean>
+
+    <!--配置文件上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="5000000"/>
+    </bean>
+
+    <!--开放静态资源访问-->
+    <mvc:default-servlet-handler/>
 </beans>

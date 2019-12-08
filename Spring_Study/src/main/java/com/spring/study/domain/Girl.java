@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Gril {
+public class Girl {
     private Integer id;
     private String name;
     private Integer age;

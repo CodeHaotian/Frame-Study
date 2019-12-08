@@ -1,6 +1,6 @@
 package com.spring.study.service;
 
-import com.spring.study.domain.Gril;
+import com.spring.study.domain.Girl;
 
 import java.util.List;
 
@@ -9,27 +9,27 @@ import java.util.List;
  * @Date: 2019/11/30 20:02
  * @Description: 操作用户方法接口
  */
-public interface GrilService {
+public interface GirlService {
     /**
      * 添加用户
      *
-     * @param gril 用户
+     * @param girl 用户
      */
-    void add(Gril gril);
+    void add(Girl girl);
 
     /**
      * 修改用户信息
      *
-     * @param gril 用户
+     * @param girl 用户
      */
-    void update(Gril gril);
+    void update(Girl girl);
 
     /**
      * 查询所有用户
      *
      * @return 用户信息集合
      */
-    List<Gril> findAll();
+    List<Girl> findAll();
 
     /**
      * 删除指定用户
@@ -43,5 +43,5 @@ public interface GrilService {
      * @param id 用户id
      * @return 用户数据封装类
      */
-    Gril findByTd(Integer id);
+    Girl findByTd(Integer id);
 }

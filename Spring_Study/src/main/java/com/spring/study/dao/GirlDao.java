@@ -1,6 +1,6 @@
 package com.spring.study.dao;
 
-import com.spring.study.domain.Gril;
+import com.spring.study.domain.Girl;
 
 import java.util.List;
 
@@ -9,24 +9,24 @@ import java.util.List;
  * @Date: 2019/11/30 19:54
  * @Description: 数据操作接口
  */
-public interface GrilDao {
+public interface GirlDao {
     /**
      * 添加富婆信息
-     * @param gril 富婆
+     * @param girl 富婆
      */
-    void add(Gril gril);
+    void add(Girl girl);
 
     /**
      * 修改富婆信息
-     * @param gril 指定条件
+     * @param girl 指定条件
      */
-    void update(Gril gril);
+    void update(Girl girl);
 
     /**
      * 查询所有富婆信息
      * @return 富婆信息集合
      */
-    List<Gril> findAll();
+    List<Girl> findAll();
 
     /**
      * 删除富婆信息
@@ -39,5 +39,5 @@ public interface GrilDao {
      * @param id 富婆id
      * @return 富婆数据封装类
      */
-    Gril findById(Integer id);
+    Girl findById(Integer id);
 }

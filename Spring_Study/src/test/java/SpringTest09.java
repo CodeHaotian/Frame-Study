@@ -1,5 +1,5 @@
-import com.spring.study.domain.Gril;
-import com.spring.study.service.GrilService;
+import com.spring.study.domain.Girl;
+import com.spring.study.service.GirlService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +15,14 @@ import java.util.List;
  * @Description: spring测试crud
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:gril.xml")
+@ContextConfiguration("classpath:girl.xml")
 public class SpringTest09 {
     @Autowired
-    private GrilService grilService;
+    private GirlService girlService;
 
     @Test
     public void add() {
-        Gril gril = Gril.builder()
+        Girl girl = Girl.builder()
                 .name( "阿尔托莉雅·潘德拉贡" )
                 .age( 22 )
                 .birthday( new Date() )
@@ -30,30 +30,30 @@ public class SpringTest09 {
                 .leg( "100" )
                 .phone( "00000000004" )
                 .address( "古不列颠王国" ).build();
-        grilService.add( gril );
+        girlService.add( girl );
     }
 
     @Test
     public void update() {
-        Gril gril = Gril.builder().id( 1 ).age( 20 ).build();
-        grilService.update( gril );
+        Girl girl = Girl.builder().id( 1 ).age( 20 ).build();
+        girlService.update( girl );
     }
 
     @Test
     public void delete() {
-        grilService.delete( 3 );
+        girlService.delete( 3 );
 
     }
 
     @Test
     public void findAll() {
-        List<Gril> grilList = grilService.findAll();
-        grilList.forEach( System.out::println );
+        List<Girl> girlList = girlService.findAll();
+        girlList.forEach( System.out::println );
     }
 
     @Test
     public void findById() {
-        Gril gril = grilService.findByTd( 1 );
-        System.out.println( gril );
+        Girl girl = girlService.findByTd( 1 );
+        System.out.println( girl );
     }
 }
