@@ -23,7 +23,6 @@
         <module>hibernate_study</module>
         <module>struts2_study</module>
         <module>Spring_Study</module>
-        <module>Mybatis_Study</module>
     </modules>
     <packaging>pom</packaging>
 

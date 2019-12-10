@@ -42,7 +42,8 @@ public class MybatisTest3 {
         User user1 = userDao.findUserById( 1 );
 
         System.out.println( user1 );
-        User user2 = new User( "xxx", "x", new Date(), "xx" );
-        userDao.save( user2 );
+
+//        User user2 = new User( "xxx", "x", new Date(), "xx" );
+//        userDao.save( user2 );
     }
 }

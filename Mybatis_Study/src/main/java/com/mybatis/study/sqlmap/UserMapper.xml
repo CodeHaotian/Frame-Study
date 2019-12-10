@@ -12,45 +12,52 @@
     [#{id}]：表示该占位符待接收参数的名称为id。
     注意：如果参数为简单类型时，#{}里面的参数名称可以是任意定义
  -->
-    <select id="findUserById" parameterType="int" resultType="com.mybatis.study.model.User">
-        SELECT * FROM user WHERE id = #{a}
+    <select id="findUserById" parameterType="java.lang.Integer" resultType="com.mybatis.study.model.User">
+        SELECT *
+        FROM user
+        WHERE id = #{a}
     </select>
 
     <!--
-        [${}]：表示拼接SQL字符串
-        [${value}]：表示要拼接的是简单类型参数。
+        ${}：表示拼接SQL字符串
+        ${value}：表示要拼接的是简单类型参数。
         注意：
         简单类型:int,byte,... string
        1、如果参数为简单类型时，${}里面的参数名称必须为value
        2、${}会引起SQL注入，一般情况下不推荐使用。但是有些场景必须使用${}，比如order by ${colname}
          -->
-    <select id="findUserByName" parameterType="String" resultType="com.mybatis.study.model.User">
-        SELECT * FROM user WHERE username LIKE '%${value}%'
+    <select id="findUserByName" parameterType="java.lang.String" resultType="com.mybatis.study.model.User">
+        SELECT *
+        FROM user
+        WHERE username LIKE '%${value}%'
     </select>
 
     <!--插入数据
-       这里的占位是写模型的属性
-   -->
+       这里的占位是写模型的属性-->
     <insert id="insertUser" parameterType="com.mybatis.study.model.User">
-        INSERT INTO user (username,sex,birthday,address)
-        VALUE (#{username},#{sex},#{birthday},#{address});
+        INSERT INTO user (username, sex, birthday, address)
+            VALUE
+            (#{username},#{sex},#{birthday},#{address});
     </insert>
 
     <!--删除-->
-    <delete id="deleteUser" parameterType="int">
-        DELETE FROM user where id = #{id};
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        DELETE
+        FROM user
+        where id = #{id};
     </delete>
 
     <!--更新-->
     <update id="updateUser" parameterType="com.mybatis.study.model.User">
-        UPDATE user SET address = #{address},sex = #{sex}
+        UPDATE user
+        SET address = #{address},
+            sex     = #{sex}
         WHERE id = #{id}
     </update>
 
     <!--插入时自动返回主键id-->
-    <insert id="insertUser2" parameterType="com.mybatis.study.model.User">
-        <!--
-			[selectKey标签]：通过select查询来生成主键
+    <insert id="insertUserAndReturnId" parameterType="com.mybatis.study.model.User">
+        <!--[selectKey标签]：通过select查询来生成主键
 			[keyProperty]：指定存放生成主键的属性
 			[resultType]：生成主键所对应的Java类型
 			[order]：指定该查询主键SQL语句的执行顺序，相对于insert语句

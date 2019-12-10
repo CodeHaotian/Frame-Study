@@ -10,9 +10,9 @@ import java.io.InputStream;
 import java.util.List;
 
 /**
- * @Author：Haotian
- * @Date：2019/5/27 16:37
- */
+ * @Author: Haotian
+ * @Date: 2019/12/10 13:42
+ **/
 public class MybatisTest1 {
     @Test
     public void test1() throws IOException {
@@ -32,11 +32,9 @@ public class MybatisTest1 {
 
         //查询多条结果
         List<User> users = session.selectList( "findUserByName", "张" );
-        System.out.println( users );
+        users.forEach( System.out::println );
 
         //关闭SqlSession。
         session.close();
-
-
     }
 }

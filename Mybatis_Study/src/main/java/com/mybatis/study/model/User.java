@@ -1,21 +1,21 @@
 package com.mybatis.study.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import cn.hutool.core.date.DateUtil;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
- * @Author：Haotian
- * @Date：2019/5/27 16:12
- */
+ * @Author: Haotian
+ * @Date: 2019/12/10 10:19
+ **/
 @Getter
 @Setter
-@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User implements Serializable {
     /**
      * @param id 用户编号
@@ -25,7 +25,7 @@ public class User implements Serializable {
      * @param address 地址
      * @param orderList 一个用户有多张定单
      */
-    private int id;
+    private Integer id;
     private String username;
     private String sex;
     private Date birthday;
@@ -33,14 +33,15 @@ public class User implements Serializable {
 
     private List<Orders> orderList;
 
-    public User() {
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday=" + DateUtil.formatDate( birthday ) +
+                ", address='" + address + '\'' +
+                ", orderList=" + orderList +
+                '}';
     }
-
-    public User(String username, String sex, Date birthday, String address) {
-        this.username = username;
-        this.sex = sex;
-        this.birthday = birthday;
-        this.address = address;
-    }
-
 }
