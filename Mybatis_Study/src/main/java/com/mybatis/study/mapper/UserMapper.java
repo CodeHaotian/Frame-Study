@@ -38,6 +38,13 @@ public interface UserMapper {
     List<User> findUserByUserQueryVo(UserQueryVO vo);
 
     /**
+     * 查询所有用户，练习分页插件
+     *
+     * @return 所有数据
+     */
+    List<User> findAll();
+
+    /**
      * 使用map查询数据
      *
      * @param map

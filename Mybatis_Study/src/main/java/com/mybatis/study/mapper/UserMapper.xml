@@ -14,28 +14,38 @@
        如果设置为false,插入，更新，删除就不会清空二级缓存
   -->
     <insert id="save" parameterType="user">
-      INSERT INTO user (username,sex,birthday,address)
-        VALUE (#{username},#{sex},#{birthday},#{address})
-   </insert>
+        INSERT INTO user (username, sex, birthday, address)
+            VALUE
+            (#{username},#{sex},#{birthday},#{address})
+    </insert>
 
     <select id="findUserById" parameterType="int" resultType="com.mybatis.study.model.User">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT *
+        FROM user
+        WHERE id = #{id}
     </select>
 
     <!--通过包装类查询用户-->
     <select id="findUserByUserQueryVo" parameterType="userQueryVO" resultType="user">
-        SELECT u.* FROM user u WHERE u.id = #{user.id}
+        SELECT u.*
+        FROM user u
+        WHERE u.id = #{user.id}
     </select>
 
     <!--通过Map查询数据-->
     <select id="findUserByMap" parameterType="hashmap" resultType="user">
-        SELECT u.* FROM user u WHERE username LIKE '%${username}%' AND sex = #{sex}
+        SELECT u.*
+        FROM user u
+        WHERE username LIKE '%${username}%'
+          AND sex = #{sex}
     </select>
 
     <!-- 设置返回数据为基本类型,int,double,long,string....-->
     <!-- 查询用户的个数 -->
     <select id="findUserCount" parameterType="userQueryVO" resultType="int">
-        SELECT COUNT(*) FROM  user WHERE sex = #{user.sex}
+        SELECT COUNT(*)
+        FROM user
+        WHERE sex = #{user.sex}
     </select>
 
     <!--设置返回数据为resultMap -->
@@ -47,13 +57,13 @@
         <result property="address" column="address_"/>
     </resultMap>
     <select id="findUserByIdResultMap" parameterType="int" resultMap="userResultMap">
-        SELECT
-         id id_,
-         username username_,
-         sex sex_,
-         birthday birthday_,
-         address address_
-        FROM user WHERE id = #{id}
+        SELECT id       id_,
+               username username_,
+               sex      sex_,
+               birthday birthday_,
+               address  address_
+        FROM user
+        WHERE id = #{id}
     </select>
 
     <!--if和where的使用-->
@@ -148,29 +158,29 @@
     </resultMap>
 
     <select id="findUserAndOrderInfo" resultMap="userRslMap">
-        SELECT
-            u.id,
-            u.username,
-            u.address,
-            o.id order_id,
-            o.number,
-            o.createtime,
-            o.note,
-            od.id detail_id,
-            od.items_id,
-            od.items_num,
-            it.name,
-            it.price,
-            it.detail
-        FROM
-            user u,
-            orders o,
-            orderdetail od,
-          items it
-        WHERE
-            o.user_id = u.id
+        SELECT u.id,
+               u.username,
+               u.address,
+               o.id  order_id,
+               o.number,
+               o.createtime,
+               o.note,
+               od.id detail_id,
+               od.items_id,
+               od.items_num,
+               it.name,
+               it.price,
+               it.detail
+        FROM user u,
+             orders o,
+             orderdetail od,
+             items it
+        WHERE o.user_id = u.id
           AND o.id = od.orders_id
           AND od.items_id = it.id
+    </select>
+    <select id="findAll" resultType="user">
+        select * from user
     </select>
 
 </mapper>
