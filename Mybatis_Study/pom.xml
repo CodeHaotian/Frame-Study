@@ -15,7 +15,7 @@
     <name>Mybatis_Study</name>
 
     <properties>
-        <mybatis-version>3.5.2</mybatis-version>
+        <mybatis-version>3.5.3</mybatis-version>
         <lombok-version>1.18.8</lombok-version>
         <mysql-connector-java-version>5.1.47</mysql-connector-java-version>
     </properties>
@@ -37,16 +37,16 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- log4j日志文件依赖 -->
+        <!-- log4j2日志文件依赖 -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.2</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.6.2</version>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.6.2</version>
         </dependency>
 
         <!--数据库连接驱动-->
@@ -61,6 +61,18 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+
+        <!--分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.1.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>2.0</version>
         </dependency>
 
         <dependency>
