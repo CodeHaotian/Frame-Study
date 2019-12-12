@@ -1,3 +1,5 @@
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.mybatis.study.mapper.UserMapper;
 import com.mybatis.study.model.User;
 import com.mybatis.study.vo.UserQueryVO;
@@ -11,10 +13,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static java.lang.System.*;
 
 /**
  * @Author：Haotian
@@ -26,7 +27,7 @@ public class MybatisTest4 {
 
     @Before
     public void before() throws IOException {
-        System.out.println( "before.....获取session" );
+        out.println( "before.....获取session" );
         //读取配置文件
         InputStream is = Resources.getResourceAsStream( "SqlMapConfig.xml" );
 
@@ -34,27 +35,28 @@ public class MybatisTest4 {
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build( is );
 
         //通过SqlSessionFactory创建SqlSession。
-        session = sessionFactory.openSession();
+        session = sessionFactory.openSession( true );
         userMapper = session.getMapper( UserMapper.class );
     }
 
     @After
     public void after() {
-        System.out.println( "after.....关闭session" );
+        out.println( "after.....关闭session" );
         //关闭SqlSession。
         session.close();
     }
 
     @Test
-    public void test1() {
-        //UserMapper userMapper=session.getMapper( UserMapper.class );
-        //System.out.println(obj.getClass());
+    public void findOne() {
         //获取数据
-        System.out.println( userMapper.findUserById( 1 ) );
-        //保存
-        /*User user2 = new User("xxx","x",new Date(),"xx");
-        userMapper.save(user2);
-        session.commit();*/
+        out.println( userMapper.findUserById( 1 ) );
+    }
+
+    @Test
+    public void save() {
+        //保存数据
+        User user = User.builder().username( "admin" ).birthday( new Date() ).sex( "2" ).address( "测试" ).build();
+        userMapper.save( user );
     }
 
     @Test
@@ -67,7 +69,7 @@ public class MybatisTest4 {
         query.setUser( user );
 
         List<User> list = userMapper.findUserByUserQueryVo( query );
-        System.out.println( list );
+        out.println( list );
     }
 
     @Test
@@ -78,6 +80,22 @@ public class MybatisTest4 {
         map.put( "sex", "1" );
 
         List<User> list = userMapper.findUserByMap( map );
-        System.out.println( list );
+        out.println( list );
+    }
+
+    @Test
+    public void findAll() {
+        //设置分页条件
+        PageHelper.startPage( 1, 4 );
+        List<User> list = userMapper.findAll();
+        list.forEach( out::print );
+        //获取分页数据
+        PageInfo<User> pageInfo = new PageInfo<User>( list );
+        out.println( "总条数：" + pageInfo.getTotal() );
+        out.println( "总页数：" + pageInfo.getPages() );
+        out.println( "当前页：" + pageInfo.getPageNum() );
+        out.println( "每页显示条数：" + pageInfo.getPageSize() );
+        out.println( "是否为第一页：" + pageInfo.isIsFirstPage() );
+        out.println( "是否为最后一页：" + pageInfo.isIsLastPage() );
     }
 }
