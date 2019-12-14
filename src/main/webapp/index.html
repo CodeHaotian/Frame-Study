@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>table模块快速使用</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+</head>
+<body>
+
+<div class="demoTable" style="margin: 30px 300px;">
+    搜索用户名：
+    <div class="layui-inline">
+        <input class="layui-input" name="name" id="demoReload" autocomplete="off">
+    </div>
+    <button class="layui-btn" data-type="reload">搜索</button>
+</div>
+
+<table class="layui-hide" id="demo"></table>
+
+<script src="/layui/layui.js"></script>
+<script>
+    layui.use('table', function () {
+        const table = layui.table;
+        //获取参数
+        table.render({
+            elem: '#demo'
+            , height: 460
+            , url: '/user/findAll' //数据接口
+            , title: '用户表'
+            , page: true //开启分页
+            , limits: [8, 10, 20] //每页条数的选择项
+            , limit: 8 //每页默认显示的数量
+            , cols: [[ //表头
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'id', title: 'ID', width: 60, sort: true}
+                , {field: 'name', title: '用户名', width: 180}
+                , {field: 'age', title: '年龄', width: 80, sort: true}
+                , {field: 'birthday', title: '生日', width: 180}
+                , {field: 'cup', title: 'cup', align: 'center', width: 80}
+                , {field: 'leg', title: 'leg', width: 80, sort: true}
+                , {field: 'phone', title: '联系电话', width: 160}
+                , {field: 'address', title: '联系地址', width: 200}
+            ]]
+            , id: 'testReload'
+            , request: {
+                pageName: 'pageNum',//页码的参数名称，默认：page
+                limitName: 'pageSize' //每页数据量的参数名，默认：limit
+            }
+            , response: {
+                statusCode: 200,//重新规定成功的状态码为 200，table 组件默认为 0
+                msgName: 'message', //规定状态信息的字段名称，默认：msg
+            }
+        });
+        let $ = layui.$, active = {
+            reload: function () {
+                const demoReload = $('#demoReload');
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        username: demoReload.val()
+                    }
+                }, 'data');
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            const type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
+</body>
+</html>
