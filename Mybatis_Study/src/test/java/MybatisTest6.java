@@ -62,7 +62,6 @@ public class MybatisTest6 {
     public void test2() {
         Orders order = mapper.findOrderById2( 3 );
         System.out.println( order );
-        System.out.println( order.getUser() );
     }
 
     /**
@@ -72,8 +71,6 @@ public class MybatisTest6 {
     public void test3() {
         Orders order = mapper.findOrderById3( 3 );
         System.out.println( order );
-        System.out.println( order.getUser() );
-        System.out.println( order.getOrderDetails() );
     }
 
     /**

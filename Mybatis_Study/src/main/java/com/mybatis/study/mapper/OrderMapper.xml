@@ -69,7 +69,6 @@
         </collection>
     </resultMap>
 
-
     <select id="findOrderById3" parameterType="int" resultMap="orderRslMap3">
        SELECT
             o.*,

@@ -43,7 +43,6 @@
         </environment>
     </environments>
 
-
     <!--告诉mybatis加载映射文件-->
     <mappers>
         <!--<mapper resource="com/mybatis/study/sqlmap/UserMapper.xml"/>-->
