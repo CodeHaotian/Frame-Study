@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>vue入门</title>
+<script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-bind 指令进行属性绑定-->
+    <!--绑定color赋属性值-->
+    <font v-bind:color="r">Vue 属性绑定</font><br>
+    <!--绑定style赋属性值-->
+    <div v-bind:style=[style1,style2]>Vue 样式绑定</div>
+    <br>
+
+    <!--v-text 指令进行解析文本-->
+    <span v-text="text"></span><br>
+
+    <!--v-html 指令进行html解析-->
+    <span v-html="html"></span>
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app', //绑定id
+        data: { //数据区域
+            r: "red", //键值对
+            text: "<h1>v-text进行文本解析</h1>",
+            html: "<h1>v-html进行超文本语言解析</h1>",
+
+            style1: { //设置绑定的style1样式
+                color: "green",
+                height: "30px",
+                width: "160px",
+                background: "yellow"
+            },
+            style2: {
+                fontSize: "24px",
+                margin: "0 auto"
+            }
+        },
+
+    });
+</script>
+</html>
