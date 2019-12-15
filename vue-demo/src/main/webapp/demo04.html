@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>vue入门</title>
+<script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--将数据遍历放入有序列表-->
+    <ol>
+        <!--v-for 遍历数据 语法：临时变量 in 列表数据的键 取出每一条数据-->
+        <li v-for="i in list">
+            <!--取数据 语法：临时变量.对应的键进行数据获取-->
+            {{ i.text }}
+        </li>
+    </ol>
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app', //绑定id
+        data: { //数据区域
+            list: [ //定义数组数据
+                {text: '学习 JavaScript'},
+                {text: '学习 Vue'},
+                {text: '整个牛项目'}
+            ]
+        },
+    });
+</script>
+</html>
