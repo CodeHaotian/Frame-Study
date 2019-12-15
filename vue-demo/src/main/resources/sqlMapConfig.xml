@@ -6,6 +6,6 @@
     <!--配置别名-->
     <typeAliases>
         <!--指定包名，别名就是类名首字母小写-->
-        <package name="com.ssm.study.model"/>
+        <package name="com.vue.entity"/>
     </typeAliases>
 </configuration>
