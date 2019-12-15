@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yileaf</groupId>
+    <artifactId>vue-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <description>VUE 练习</description>
+
+    <developers>
+        <developer>
+            <id>Mitu</id>
+            <name>Tang Haotian</name>
+            <email>2056423011@qq.com</email>
+            <url>https://www.yileaf.com</url>
+        </developer>
+    </developers>
+
+</project>

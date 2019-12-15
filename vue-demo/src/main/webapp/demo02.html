@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue入门</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{ message }}</h1> <!--通过键取值-->
+
+    <!--v-on 指令添加一个事件监听器，指令带有前缀 v-,是 Vue 提供的特殊特性,这里的意思是监听一个方法名为click的点击事件-->
+    <button v-on:click="click('v-绑定事件成功')">Vue 事件绑定</button>
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app', //绑定id
+        data: { //数据区域
+            message: 'Hello Vue!' //键值对
+        },
+        methods: { //方法区域
+            click: function (msg) { //方法主体内容
+                alert("改变数据");
+                this.message = msg //当前message键内容等于当前方法传入的数据
+            }
+        }
+    });
+</script>
+</html>

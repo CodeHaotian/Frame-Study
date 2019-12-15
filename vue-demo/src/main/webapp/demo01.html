@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue入门</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{ message }}</h1> <!--通过键取值-->
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app', //绑定id
+        data: { //数据区域
+            message: 'Hello Vue!' //键值对
+        }
+    });
+</script>
+</html>
