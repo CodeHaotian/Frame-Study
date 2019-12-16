@@ -8,7 +8,16 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>SSM Maven Webapp</name>
+    <name>SSM Maven Web</name>
+
+    <developers>
+        <developer>
+            <id>Mitu</id>
+            <name>Tang Haotian</name>
+            <email>2056423011@qq.com</email>
+            <url>https://www.yileaf.com</url>
+        </developer>
+    </developers>
 
     <!-- 统一设置设置版本号 -->
     <properties>
@@ -124,6 +133,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- 单元测试 -->
@@ -131,7 +141,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit-version}</version>
-            <!-- 表示开发的时候引入，发布的时候不会加载此包 -->
             <scope>test</scope>
         </dependency>
 

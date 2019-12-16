@@ -21,9 +21,9 @@ public class UserController extends BaseController {
     @RequestMapping("/findAll")
     @ResponseBody
     public Msg findAll(@RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "5") Integer pageSize,@RequestParam(required = false) String username) {
+        // 使用 PageHelper 提供的lambda方式进行分页
         Page<Girl> page = PageHelper.startPage( pageNum, pageSize ).doSelectPage( () -> userService.findAll(username) );
         msg.set( Code.SUCCESS, "查询成功", page.getTotal(), page.getResult() );
-        System.out.println( msg );
         return msg;
     }
 }

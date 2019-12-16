@@ -22,8 +22,10 @@
 
 <script src="/layui/layui.js"></script>
 <script>
-    layui.use('table', function () {
+    layui.use(['table','layer'], function () {
         const table = layui.table;
+        const layer = layui.layer;
+        const index = layer.load(1);//添加laoding,0-2两种方式
         //获取参数
         table.render({
             elem: '#demo'
@@ -39,9 +41,8 @@
                 , {field: 'name', title: '用户名', width: 180}
                 , {field: 'age', title: '年龄', width: 80, sort: true}
                 , {field: 'birthday', title: '生日', width: 180}
-                , {field: 'cup', title: 'cup', align: 'center', width: 80}
-                , {field: 'leg', title: 'leg', width: 80, sort: true}
                 , {field: 'phone', title: '联系电话', width: 160}
+                , {field: 'bwh', title: '三围', width: 160}
                 , {field: 'address', title: '联系地址', width: 200}
             ]]
             , id: 'testReload'
@@ -52,7 +53,11 @@
             , response: {
                 statusCode: 200,//重新规定成功的状态码为 200，table 组件默认为 0
                 msgName: 'message', //规定状态信息的字段名称，默认：msg
+            },
+            done: function (res) {   //返回数据执行回调函数
+                layer.close(index);    //返回数据关闭loading
             }
+
         });
         let $ = layui.$, active = {
             reload: function () {
