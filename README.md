@@ -10,6 +10,6 @@ CREATE TABLE girl (
 	leg VARCHAR ( 10 ) NULL,
 	phone VARCHAR ( 16 ) NULL,
 	address VARCHAR ( 60 ) NULL,
-  status enum ( 'Y', 'N' ) DEFAULT 'Y' NULL 
+    status enum ( 'Y', 'N' ) DEFAULT 'Y' NULL 
 );
 ```
