@@ -34,6 +34,6 @@ public interface UserMapper {
      *
      * @param girl 新用户数据
      */
-    @Update("update girl set name=#{name},age=#{age},birthday=#{birthday},cup=#{cup},leg=#{leg},phone=#{phone},address=#{address},status=#{status} where id=#{id}")
+    @Update("update girl set name=#{name},age=#{age},birthday=#{birthday},phone=#{phone},bwh=#{bwh},address=#{address},status=#{status} where id=#{id}")
     void update(Girl girl);
 }

@@ -327,7 +327,7 @@
             <ul class="sidebar-menu">
                 <li class="header">菜单</li>
 
-                <li id="admin-index"><a href="all-admin-index.html"><i class="fa fa-dashboard"></i> <span>首页</span></a>
+                <li id="admin-index"><a href="#"><i class="fa fa-dashboard"></i> <span>首页</span></a>
                 </li>
 
                 <!-- 菜单 -->
@@ -342,7 +342,7 @@
                     <ul class="treeview-menu">
 
                         <li id="admin-login">
-                            <a href="all-admin-login.html">
+                            <a href="user.html">
                                 <i class="fa fa-circle-o"></i> 查询所有用户
                             </a>
                         </li>
@@ -432,7 +432,7 @@
                                 <th class="sorting_desc">用户名</th>
                                 <th class="sorting_asc sorting_asc_disabled">年龄</th>
                                 <th class="sorting_desc sorting_desc_disabled">生日</th>
-                                <th class="sorting">cup</th>
+                                <th class="sorting">三围</th>
                                 <th class="text-center sorting">联系地址</th>
                                 <th class="text-center">操作</th>
                             </tr>
@@ -445,7 +445,7 @@
                                 <td>{{u.name}}</td>
                                 <td>{{u.age}}</td>
                                 <td>{{u.birthday}}</td>
-                                <td>{{u.cup}}</td>
+                                <td>{{u.bwh}}</td>
                                 <td class="text-center">{{u.address}}</td>
                                 <td class="text-center">
                                     <button type="button" class="btn bg-olive btn-xs">详情</button>
@@ -494,10 +494,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="col-sm-2 control-label">cup:</label>
+                                                            <label class="col-sm-2 control-label">三围:</label>
                                                             <div class="col-sm-5">
                                                                 <input type="text" class="form-control"
-                                                                       v-model="user.cup">
+                                                                       v-model="user.bwh">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">

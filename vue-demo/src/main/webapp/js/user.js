@@ -1,7 +1,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        user: {id: "", name: "", age: "", birthday: "", cup: "", leg: "", phone: "", address: "", status: ""},
+        user: {id: "", name: "", age: "", birthday: "", phone: "", bwh: "", address: "", status: ""},
         list: []
     },
     methods: {

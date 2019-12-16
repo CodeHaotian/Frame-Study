@@ -21,9 +21,8 @@ public class Girl {
     private Integer age;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date birthday;
-    private String cup;
-    private String leg;
     private String phone;
+    private String bwh;
     private String address;
     private String status;
 
@@ -34,9 +33,8 @@ public class Girl {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", birthday=" + birthday +
-                ", cup='" + cup + '\'' +
-                ", leg='" + leg + '\'' +
                 ", phone='" + phone + '\'' +
+                ", bwh='" + bwh + '\'' +
                 ", address='" + address + '\'' +
                 '}';
     }
