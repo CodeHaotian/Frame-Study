@@ -1,6 +1,7 @@
 package com.vue.service.impl;
 
 import com.vue.entity.Girl;
+import com.vue.mapper.PersonMapper;
 import com.vue.mapper.UserMapper;
 import com.vue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private PersonMapper personMapper;
 
     @Override
     public List<Girl> findAll() {
@@ -24,7 +27,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Girl findById(Integer id) {
-        return userMapper.findById( id );
+        // 使用Mybatis-plus进行id查询
+        return personMapper.selectById( id );
     }
 
     @Override

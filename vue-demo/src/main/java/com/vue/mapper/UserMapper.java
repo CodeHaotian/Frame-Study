@@ -11,7 +11,7 @@ import java.util.List;
  * @Date: 2019/12/15 18:44
  * @Description: 数据接口
  */
-public interface UserMapper {
+public interface UserMapper{
     /**
      * 查询所有用户
      *
