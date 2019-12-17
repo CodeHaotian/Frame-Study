@@ -1,0 +1,19 @@
+2019-12-14 at 14:55:09 CST DEBUG org.apache.ibatis.logging.LogFactory 105 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache 60 getObject - Cache Hit Ratio [SQL_CACHE]: 0.0
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache 60 getObject - Cache Hit Ratio [com.mybatis.study.mapper.UserMapper]: 0.0
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction 136 openConnection - Opening JDBC Connection
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 143 debug - ==>  Preparing: SELECT count(0) FROM user 
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 143 debug - ==> Parameters: 
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==    Columns: count(0)
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==        Row: 9
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 143 debug - <==      Total: 1
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache 60 getObject - Cache Hit Ratio [com.mybatis.study.mapper.UserMapper]: 0.0
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 143 debug - ==>  Preparing: select * from user LIMIT ? 
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 143 debug - ==> Parameters: 4(Integer)
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==    Columns: id, username, birthday, sex, address
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==        Row: 1, 王五, null, 2, null
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==        Row: 10, 张三, 2014-07-10, 1, 北京市
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==        Row: 16, 张小明, null, 1, 河南郑州
+2019-12-14 at 14:55:10 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger 149 trace - <==        Row: 22, 陈小明, null, 1, 河南郑州
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 143 debug - <==      Total: 4
+2019-12-14 at 14:55:10 CST DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction 90 close - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@384fc774]
