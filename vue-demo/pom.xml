@@ -73,6 +73,7 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <!--配置MyBatis-Plus依赖-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus</artifactId>
