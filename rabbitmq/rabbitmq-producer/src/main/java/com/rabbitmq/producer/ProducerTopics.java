@@ -11,7 +11,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * @Author: Haotian
  * @Date: 2020/1/20 16:46
- * @Description: mq通配符模式发送消息端, #匹配多个单词，*匹配一个单词
+ * @Description: mq通配符模式发送消息端, #匹配零个或多个单词，*匹配一个单词
  */
 public class ProducerTopics {
     public static void main(String[] args) throws IOException, TimeoutException {
