@@ -13,13 +13,15 @@
     <context:property-placeholder location="classpath:rabbitmq.properties"/>
 
     <!-- 定义rabbitmq connectionFactory
-             publisher-confirms：开启消息确认-->
+             publisher-confirms：开启消息确认
+             publisher-returns：开启回退模式-->
     <rabbit:connection-factory id="connectionFactory" host="${rabbitmq.host}"
                                port="${rabbitmq.port}"
                                username="${rabbitmq.username}"
                                password="${rabbitmq.password}"
                                virtual-host="${rabbitmq.virtual-host}"
-                               publisher-confirms="true"/>
+                               publisher-confirms="true"
+                               publisher-returns="true"/>
     <!--定义管理交换机、队列-->
     <rabbit:admin connection-factory="connectionFactory"/>
 
