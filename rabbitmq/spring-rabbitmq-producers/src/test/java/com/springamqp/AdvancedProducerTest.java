@@ -93,4 +93,12 @@ public class AdvancedProducerTest {
         //3. 发送消息
         rabbitTemplate.convertAndSend( "test_exchange_confirm", "abc", "message confirm...." );
     }
+
+    @Test
+    public void testSend() {
+        // 发送消息
+        for (int i = 1; i <= 10; i++) {
+            rabbitTemplate.convertAndSend( "test_exchange_confirm", "confirm", "第" + i + "条message confirm...." );
+        }
+    }
 }
