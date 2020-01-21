@@ -2,7 +2,9 @@ package com.springamqp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,6 +101,37 @@ public class AdvancedProducerTest {
         // 发送消息
         for (int i = 1; i <= 10; i++) {
             rabbitTemplate.convertAndSend( "test_exchange_confirm", "confirm", "第" + i + "条message confirm...." );
+        }
+    }
+
+    /* TTL:过期时间
+     *  1. 队列统一过期
+     *  2. 消息单独过期
+     * 如果设置了消息的过期时间，也设置了队列的过期时间，它以时间短的为准。
+     * 队列过期后，会将队列所有消息全部移除。
+     * 消息过期后，只有消息在队列顶端，才会判断其是否过期(移除掉)
+     */
+    @Test
+    public void testTtl() {
+        // 消息后处理对象，设置一些消息的参数信息
+        MessagePostProcessor messagePostProcessor = new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                //1.设置message的信息
+                message.getMessageProperties().setExpiration( "5000" );//消息的过期时间
+                //2.返回该消息
+                return message;
+            }
+        };
+        for (int i = 1; i <= 10; i++) {
+            if (i == 5) {
+                //消息单独过期
+                rabbitTemplate.convertAndSend( "test_exchange_ttl", "ttl.message", "第" + i + "条message ttl....", messagePostProcessor );
+            } else {
+                //不过期的消息
+                rabbitTemplate.convertAndSend( "test_exchange_ttl", "ttl.message", "第" + i + "条message ttl...." );
+
+            }
         }
     }
 }

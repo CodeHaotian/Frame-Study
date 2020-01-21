@@ -33,6 +33,20 @@
         </rabbit:bindings>
     </rabbit:direct-exchange>
 
+    <!--ttl-->
+    <rabbit:queue id="test_queue_ttl" name="test_queue_ttl">
+        <!--设置queue的参数-->
+        <rabbit:queue-arguments>
+            <!--x-message-ttl指队列的过期时间-->
+            <entry key="x-message-ttl" value="100000" value-type="java.lang.Integer"/>
+        </rabbit:queue-arguments>
+    </rabbit:queue>
+    <rabbit:topic-exchange name="test_exchange_ttl" >
+        <rabbit:bindings>
+            <rabbit:binding pattern="ttl.#" queue="test_queue_ttl"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
     <!--定义rabbitTemplate对象操作可以在代码中方便发送消息-->
     <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory"/>
 </beans>
