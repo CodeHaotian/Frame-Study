@@ -134,4 +134,22 @@ public class AdvancedProducerTest {
             }
         }
     }
+
+    /**
+     * 发送测试死信消息：
+     * 1. 过期时间(原队列存在消息过期时间，消息到达过期时间未被消费)
+     * 2. 长度限制(队列长度到达设置的上限，多余的消息进入死信)
+     * 3. 消息拒收(消费者拒收消费消息，并且不重回对列)
+     */
+    @Test
+    public void testDlx() {
+        //1. 测试过期时间
+        //rabbitTemplate.convertAndSend( "test_exchange_dlx", "test.dlx.message", "我是一条消息，存活时间到达进入死信" );
+        //2. 测试长度限制
+        /*for (int i = 1; i <= 20; i++) {
+            rabbitTemplate.convertAndSend( "test_exchange_dlx", "test.dlx.message", "我是第" + i + "条消息，超过10条后续进入死信" );
+        }*/
+        //3. 测试消息拒收
+        rabbitTemplate.convertAndSend( "test_exchange_dlx", "test.dlx.message", "我是一条消息，被拒绝签收后进入死信" );
+    }
 }
