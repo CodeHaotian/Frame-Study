@@ -152,4 +152,13 @@ public class AdvancedProducerTest {
         //3. 测试消息拒收
         rabbitTemplate.convertAndSend( "test_exchange_dlx", "test.dlx.message", "我是一条消息，被拒绝签收后进入死信" );
     }
+
+    /**
+     * 延迟队列：ttl + dlx 组合实现延迟
+     */
+    @Test
+    public void testDelay() {
+        // 模拟下订单息。 半个小时候后发送
+        rabbitTemplate.convertAndSend( "order_exchange", "order.msg", "订单信息：id=1,time=2020年1月22日16:31:38" );
+    }
 }

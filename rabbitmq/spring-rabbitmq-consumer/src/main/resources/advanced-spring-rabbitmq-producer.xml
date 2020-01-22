@@ -26,6 +26,7 @@
         <!--绑定监听队列-->
         <!--<rabbit:listener ref="ackListener" queue-names="test_queue_confirm"/>-->
         <!--<rabbit:listener ref="qosListener" queue-names="test_queue_confirm"/>-->
-        <rabbit:listener ref="dlxListener" queue-names="test_queue_dlx"/>
+        <!--<rabbit:listener ref="dlxListener" queue-names="test_queue_dlx"/>-->
+        <rabbit:listener ref="orderListener" queue-names="order_queue_dlx"/>
     </rabbit:listener-container>
 </beans>
