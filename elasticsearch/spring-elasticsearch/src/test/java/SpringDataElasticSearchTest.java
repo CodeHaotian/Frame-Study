@@ -146,7 +146,9 @@ public class SpringDataElasticSearchTest {
                         //设置查询内容与查询域
                         QueryBuilders
                                 .queryStringQuery( "真白与布丽姬" ).defaultField( "title" ) )
-                .withPageable( PageRequest.of( 0, 4 ) )
+                .withPageable(
+                        PageRequest
+                                .of( 0, 4 ) )
                 .withSort(
                         //设置排序字段与排序规则
                         SortBuilders
