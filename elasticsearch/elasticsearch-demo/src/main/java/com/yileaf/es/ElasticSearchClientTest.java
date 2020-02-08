@@ -1,6 +1,8 @@
 package com.yileaf.es;
 
 import com.alibaba.fastjson.JSON;
+import io.netty.util.internal.ObjectUtil;
+import io.netty.util.internal.StringUtil;
 import org.apache.commons.collections4.MapUtils;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
