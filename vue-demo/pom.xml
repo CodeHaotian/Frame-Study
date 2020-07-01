@@ -22,7 +22,7 @@
 
     <properties>
         <junit-version>4.12</junit-version>
-        <log4j-version>2.6.2</log4j-version>
+        <log4j-version>2.13.3</log4j-version>
         <lombok-version>1.18.8</lombok-version>
         <jackson.version>2.10.0</jackson.version>
         <druid-version>1.1.20</druid-version>
