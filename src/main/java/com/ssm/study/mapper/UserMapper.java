@@ -5,9 +5,10 @@ import com.ssm.study.entity.Girl;
 import java.util.List;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 20:21
- */
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:57
+ **/
 public interface UserMapper {
     /**
      * 根据用户名查询用户

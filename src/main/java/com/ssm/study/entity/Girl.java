@@ -6,10 +6,12 @@ import lombok.*;
 import java.util.Date;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 20:24
- * @Description: 用户实体类
- */
+ * 用户实体类
+ *
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:57
+ **/
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,7 +21,7 @@ public class Girl {
     private Integer id;
     private String name;
     private Integer age;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     private String phone;
     private String bwh;

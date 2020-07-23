@@ -4,10 +4,12 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 21:07
- * @Description: 数据封装类
- */
+ * 数据封装类
+ *
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:58
+ **/
 @Component
 @Data
 public class Msg {

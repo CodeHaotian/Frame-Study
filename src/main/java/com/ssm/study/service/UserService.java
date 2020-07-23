@@ -5,9 +5,10 @@ import com.ssm.study.entity.Girl;
 import java.util.List;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 20:30
- */
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:58
+ **/
 public interface UserService {
     /**
      * 查询用户

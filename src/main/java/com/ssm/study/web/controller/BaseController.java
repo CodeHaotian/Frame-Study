@@ -5,9 +5,10 @@ import com.ssm.study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 21:11
- */
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:59
+ **/
 public class BaseController {
     @Autowired
     protected UserService userService;

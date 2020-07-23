@@ -1,9 +1,10 @@
 package com.ssm.study.model;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 21:01
- */
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:57
+ **/
 public class Code {
     /**
      * 成功状态码

@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * @Author: Haotian
- * @Date: 2019/12/13 20:31
- */
+ * @author Haotian
+ * @version 1.0.0
+ * @date 2020/7/23 8:59
+ **/
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
@@ -19,6 +20,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Girl> findAll(String name) {
-        return userMapper.findAll(name);
+        return userMapper.findAll( name );
     }
 }
