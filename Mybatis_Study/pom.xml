@@ -15,7 +15,7 @@
     <name>Mybatis_Study</name>
 
     <properties>
-        <mybatis-version>3.5.3</mybatis-version>
+        <mybatis-version>3.5.6</mybatis-version>
         <lombok-version>1.18.8</lombok-version>
         <mysql-connector-java-version>5.1.47</mysql-connector-java-version>
     </properties>
